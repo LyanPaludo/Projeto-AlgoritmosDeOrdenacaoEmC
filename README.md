@@ -22,3 +22,7 @@ projeto/
 make
 make run
 ```
+
+O `Makefile` detecta automaticamente o sistema operacional. No Windows,
+ele gera `benchmark.exe` e usa os comandos compatíveis com o terminal do
+Windows; no Linux, gera `benchmark` e usa os comandos tradicionais do Unix.
