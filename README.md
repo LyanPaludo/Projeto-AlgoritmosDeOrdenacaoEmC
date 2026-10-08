@@ -1,8 +1,10 @@
-# Projeto-AlgoritmosDeOrdenacaoEmC
+# Benchmark de algoritmos de ordenação
 
-Projeto da disciplina PROJETO INTEGRADOR 1, envolvendo benchmark de diferentes tipos de algoritmos de ordenação para diferentes tipos de listas em C.
+Projeto em C que compara oito algoritmos de ordenação em cinco tipos de lista.
 
-## Estrutura
+## Compilação e execução
+
+No Windows com MinGW:
 
 ```text
 projeto/

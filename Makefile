@@ -8,11 +8,13 @@ OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 ifeq ($(OS),Windows_NT)
 TARGET = benchmark.exe
+LDFLAGS = -Wl,--stack,67108864
 MKDIR_OBJ = if not exist "$(OBJ_DIR)" mkdir "$(OBJ_DIR)"
 RM = if exist "$(OBJ_DIR)" rmdir /S /Q "$(OBJ_DIR)" & if exist "$(TARGET)" del /Q "$(TARGET)"
 RUN = .\$(TARGET)
 else
 TARGET = benchmark
+LDFLAGS =
 MKDIR_OBJ = mkdir -p $(OBJ_DIR)
 RM = rm -rf $(OBJ_DIR) $(TARGET)
 RUN = ./$(TARGET)
@@ -23,7 +25,7 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LDFLAGS) -lm
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(MKDIR_OBJ)
